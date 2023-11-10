@@ -1,7 +1,9 @@
 ﻿// Screen Sound
 
 string mensagemBoasVindas = "Welcome to Screen sound";
-List<string> listaDasBandas = new List<string> { "Linkin Park", "Asking Alexandria", "Spiritbox" };
+//List<string> listaDasBandas = new List<string> { "Linkin Park", "Asking Alexandria", "Spiritbox" };
+
+Dictionary<string, List<int>> registeredBands = new Dictionary<string, List<int>>();
 
 void ExibirLogo()
 {
@@ -59,7 +61,7 @@ void RegisterBands()
     OptionsTitle("Logging Bands");
     Console.WriteLine("Write down the band you want to log: ");
     string nomeDaBanda = Console.ReadLine()!;
-    listaDasBandas.Add(nomeDaBanda);
+    registeredBands.Add(nomeDaBanda, new List<int>());
     Console.WriteLine($"\nThe band {nomeDaBanda} has been successfully logged!");
     Thread.Sleep(2000);
     Console.Clear() ;
@@ -75,7 +77,7 @@ void ShowRegisteredBands()
         //Console.WriteLine($"Banda: {listaDasBandas[i]}");
     //}
     
-    foreach(string band in listaDasBandas)
+    foreach(string band in registeredBands.Keys)
     {
         Console.WriteLine($"Band: {band}");
     }
